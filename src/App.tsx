@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import List from './components/List'
+
+// On définit les types des variables qui seront présentes dans le tableau [people]
+interface IState {
+  people:{
+    name: string
+    age: number
+    url: string
+    // Note est optionnel, on le precise en rajoutant "?"
+    note?: string
+  }[]
+}
 
 function App() {
+
+  //On définit le state people avec son modifieur setPeople
+  //On lui précise la structure des types attendus, définis plus haut, avec <IState["people"]>
+  const [people, setPeople] = useState<IState["people"]>([])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>People Invited to my Party</h1>
+      <List people2={people}/>
     </div>
   );
 }
