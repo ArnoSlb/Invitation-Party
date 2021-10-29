@@ -7,6 +7,7 @@ interface IProps {
       name: string
       job: string
       url: string
+      key: string
       // Note est optionnel, on le precise en rajoutant "?"
       note?: string
     }[]
@@ -24,7 +25,7 @@ const List: React.FC<IProps> = (props) => {
     const renderList = (): JSX.Element[] => {
       return props.people2.map((person) => {
           return (
-            <div className="block__person">
+            <div key={person.key} className="block__person">
               <img src={person.url} alt="" />
               <div className="block__person__data">
                 <p className="block__person__data__name">{person.name}</p>

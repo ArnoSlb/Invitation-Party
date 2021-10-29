@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import List from './components/List'
+import List from './components/List';
+import {v4 as uuidv4} from 'uuid'
 
 // On définit les types des variables qui seront présentes dans le tableau [people]
 interface IState {
@@ -10,6 +11,7 @@ interface IState {
     url: string
     // Note est optionnel, on le precise en rajoutant "?"
     note?: string
+    key: string
   }[]
 }
 
@@ -22,13 +24,15 @@ function App() {
       name: "LeBron James",
       url: "https://cdna.artstation.com/p/assets/images/images/030/492/572/large/christos-lytras-lebron-portrait.jpg?1600779528",
       job: "Basketball player",
-      note: "NBA Legend"
+      note: "NBA Legend",
+      key: uuidv4()
     },
     {
       name: "Henry Cavill",
       url: "https://cdna.artstation.com/p/assets/images/images/032/507/356/large/christos-lytras-supes-zorn-for-web.jpg?1606665108",
       job: "Actor",
-      note: "Superman"
+      note: "Superman",
+      key: uuidv4()
     },
   ])
 
