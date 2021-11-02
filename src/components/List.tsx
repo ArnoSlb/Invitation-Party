@@ -6,8 +6,9 @@ interface IProps {
     people2:{
       name: string
       job: string
-      url: string
+      img: string
       key: string
+      age: string
       // Note est optionnel, on le precise en rajoutant "?"
       note?: string
     }[]
@@ -26,9 +27,10 @@ const List: React.FC<IProps> = (props) => {
       return props.people2.map((person) => {
           return (
             <div key={person.key} className="block__person">
-              <img src={person.url} alt="" />
+              <img src={person.img} alt="" />
               <div className="block__person__data">
                 <p className="block__person__data__name">{person.name}</p>
+                <p>{person.age}</p>
                 <p>{person.job}</p>
                 <p>{person.note}</p>
               </div>
